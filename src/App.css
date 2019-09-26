@@ -1,22 +1,87 @@
-.App {
-  text-align: center;
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+.app-loaderContent {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	align-items: center;
+	text-align: center;
+	background: #f5f7f9;
+	display: inline-flex;
 }
 
-.App-logo {
-  height: 40vmin;
+.spinnerWrapper {
+  	width: 100%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.spinnerWrapper h6{
+	text-transform: uppercase;
+    font-weight: 800;
+    font-size: 12px;
+    color: #72687d;
+    font-family: 'Roboto';
 }
 
-.App-link {
-  color: #09d3ac;
+.spinnerWrapper .text-light {
+    color: #ada6b7 !important;
+}
+
+.componentLoader{
+	text-align: center;
+}
+
+.rightNav li {
+    padding: 0 0 0 10px;
+}
+
+.monsterCard {
+    margin: 0 0 30px;
+}
+
+.card-title {
+    text-transform: capitalize;
+}
+
+.card-img-top {
+    background: #f2eff5;
+}
+
+.monsterDetaiView-Wrap{
+	text-align: center;
+	background: rgba(124, 75, 160, 0.08);
+	min-height: calc(100vh - 56px);
+	padding: 0 100px;
+}
+
+.monsterDetaiView-Wrap img {
+    margin: 0 0 30px;
+}
+
+.monsterDetaiView-Wrap h3 {
+    text-transform: capitalize;
+}
+
+
+.applicationForm-wrap {
+    text-align: center;
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: 60px auto 0;
+}
+
+.roboLogo {
+    background: #cbdcef;
+}
+
+.applicationForm-wrap h5.h5 {
+    font-family: 'Roboto';
+    font-weight: 500 !important;
+    font-size: 1.2rem;
+}
+
+.applicationForm-wrap .form-group{
+	text-align: left;
 }

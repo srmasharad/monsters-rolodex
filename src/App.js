@@ -1,26 +1,51 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {lazy, Suspense, Component} from 'react';
+import { Switch, Route, Redirect } from 'react-router-dom';
+import { Container } from 'react-bootstrap';
+import Header from './components/navBar';
 import './App.css';
+import PageLoader from './components/common/appLoader';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const SignUpForm = lazy(() => import('./components/signUp'));
+const Logout = lazy(() => import('./components/logout'));
+const LoginComponent =  lazy(() => import('./components/login'))
+const MonsterDetailView = lazy(() => import('./components/monsterDetailView'));
+const MonstersComponent = lazy(() => import('./components/monsters'));
+const AboutComponent = lazy(() => import('./components/about'));
+const PageNotFound = lazy(() => import('./components/pageNotFound'));
+
+
+class App extends Component {
+	state = {}
+
+	componentDidMount(){
+		const user = localStorage.getItem('token');
+		this.setState({ user })
+	}
+
+	render(){
+		const { user } = this.state;
+		return (
+			<React.Fragment>
+				<Header title="Monster Rolodex" user={user}/>
+				<main className="site-main">
+					<Container fluid>
+						<Suspense fallback={<PageLoader />}>
+							<Switch>
+								<Route path="/signup" component={SignUpForm} />
+								<Route path="/logout" component={Logout} />
+								<Route path="/login" component={LoginComponent} />
+								<Route path="/monsters/:id" component={MonsterDetailView} />
+								<Route path="/" exact component={MonstersComponent} />
+								<Route path="/about" component={AboutComponent} />
+								<Route path="/pagenotfound" component={PageNotFound}/>
+								<Redirect to="/pagenotfound" />
+							</Switch>
+						</Suspense>
+					</Container>
+				</main>
+			</React.Fragment>
+		)
+	}
 }
 
 export default App;
