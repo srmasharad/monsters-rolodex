@@ -1,0 +1,2 @@
+(window["webpackJsonpmonster-rolodex"]=window["webpackJsonpmonster-rolodex"]||[]).push([[10],{308:function(e,n,t){"use strict";t.r(n);var o=t(25),r=t(26),c=t(28),a=t(27),u=t(29),i=t(0),l=function(e){function n(){return Object(o.a)(this,n),Object(c.a)(this,Object(a.a)(n).apply(this,arguments))}return Object(u.a)(n,e),Object(r.a)(n,[{key:"componentDidMount",value:function(){localStorage.removeItem("token"),window.location="/"}},{key:"render",value:function(){return null}}]),n}(i.Component);n.default=l}}]);
+//# sourceMappingURL=10.ef684f74.chunk.js.map
